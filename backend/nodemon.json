@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ext": "ts,json, graphql",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "FORCE_COLOR=1 node --inspect --trace-warnings -r ts-node/register/transpile-only ./src/index.ts",
+  "signal": "SIGTERM"
+}

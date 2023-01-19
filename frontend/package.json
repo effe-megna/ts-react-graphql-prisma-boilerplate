@@ -1,8 +1,17 @@
 {
-  "name": "product",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.8",
+    "@graphql-codegen/typescript-operations": "^2.3.5",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.11",
+    "concurrently": "^7.3.0",
+    "ts-node": "^10.9.1"
+  },
   "dependencies": {
+    "@apollo/client": "^3.5.10",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -10,6 +19,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -17,7 +27,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"yarn run react-scripts start\" \"yarn generate --watch\"",
+    "generate": "graphql-codegen",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
